@@ -9,4 +9,7 @@ RUN \
 	&& mkdir -p /allure-results \
 	&& mkdir -p /allure-report \
 
-CMD allure generate /allure-results
+COPY allure.entrypoint.sh /usr/local/bin/ 
+RUN chmod +x /usr/local/bin/allure.entrypoint.sh 
+
+ENTRYPOINT ["allure.entrypoint.sh"] 
