@@ -8,6 +8,6 @@ RUN \
 	&& npm install -g allure-commandline \
 	&& mkdir -p /allure-results \
 	&& mkdir -p /allure-report \
-COPY ./allure.entrypoint.sh /
-RUN chmod +x /allure.entrypoint.sh
-ENTRYPOINT ["/allure.entrypoint.sh"] 
+COPY ./allure.entrypoint.sh /usr/local/bin/ 
+RUN ["chmod", "+x", "/usr/local/bin/allure.entrypoint.sh"]
+ENTRYPOINT ["/allure.entrypoint.sh"]
